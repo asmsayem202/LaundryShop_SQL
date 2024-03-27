@@ -1,2 +1,10 @@
 # LaundryShop_SQL
-This SQL script initializes the LaundryShop database, sets up user permissions, defines core business tables, populates initial data, and introduces advanced objects like procedures, functions, views, and a trigger for data management.
+The SQL script initializes and configures a database for a hypothetical LaundryShop. It starts by creating the LaundryShop database and setting up a login named [Owner] with specific permissions, including adding it to the dbcreator server role. In the LaundryShop database, it then creates a user [Operator] linked to the [Owner] login, granting this user a broad range of permissions (select, insert, update, delete, execute) on the dbo schema.
+
+The script proceeds to define the data structure of the LaundryShop by creating tables for Customers, Orders, Items, OrderItems, Employees, and Transactions, which include relationships among them (e.g., foreign keys to maintain referential integrity). Following the table creation, it populates these tables with initial data entries for customers, orders, items, order items, employees, and transactions, showcasing a starting dataset for the application.
+
+Additionally, the script introduces a stored procedure (GetOrderDetails) and a table-valued function (GetOrderDetailsFunction) for retrieving detailed information about orders, including customer names, item names, quantities, and prices. Two views (VwCustomers and CustomerOrders) are created to facilitate easy access to customer data and the detailed breakdown of customer orders, respectively.
+
+Moreover, a stored procedure (Sp_insert_Customers) and a scalar function (FnRetriveCutomerName) are defined for inserting new customer records with specific validation and retrieving customer names by their ID, respectively.
+
+Finally, a trigger (TrCustomer) is established on the Customers table to enforce a rule that prevents the insertion of multiple records at once, ensuring data integrity by allowing only single record insertions at any given time. This comprehensive script not only sets up the database structure and access permissions but also provides mechanisms for data manipulation and retrieval, showcasing a robust backend setup for managing a laundry shop's operations.
